@@ -67,3 +67,26 @@ const getData2 = async (urls) => {
     }
 }
 getData2(urlList);
+
+//Feature 2020 - Promise.allSettled 
+const promiseOne = new Promise((resolve, reject) => 
+    setTimeout(resolve, 3000));
+const promiseTwo = new Promise((resolve, reject) => 
+    setTimeout(reject, 3000));
+
+//Promise.allSettled([]).then().catch(); - get back all the promises when they are completed, no matter fulfilled or rejected    
+Promise.allSettled([promiseOne, promiseTwo]).then(data => console.log(data))
+.catch(err => console.log("You've got some error ..",err));
+
+//Threads, Concurrency, Parallelism
+/*
+var worker = new Worker('worker.js'); // window object has access to it
+worker.postMessage('Hellooo');
+addEventListener('message');
+*/
+//A worker is a JS programm running on a different thread along with the main thread
+
+import { spawn } from 'child_process';
+spawn('git', ['stuff']);
+
+
